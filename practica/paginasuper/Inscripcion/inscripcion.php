@@ -31,11 +31,9 @@ if ($conexion->connect_error) {
 }
 $sql="SELECT*FROM inscripcion";
 $resultado=$conexion->query($sql);
-echo  '<h3 class="card-title">Inscripcion</h3><br>';
+?>
 
-while ($fila=$resultado->fetch_assoc()) {
-  #imprimir los datos de cada fila
-  echo '<div class="row">
+<div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
@@ -64,12 +62,25 @@ while ($fila=$resultado->fetch_assoc()) {
             
           </thead>
           <tbody>
-            <tr>
+       
+<?php
+echo  '<h3 class="card-title">Inscripcion</h3><br>';
+
+          while ($fila=$resultado->fetch_assoc()) {
+            #imprimir los datos de cada fila
+         echo '  <tr>
               <td>'.$fila["id"].'</td>
               <td>'.$fila["id_alumno"].'</td>
               <td>'.$fila["id_cursos"].'</td>
               <td>'.$fila["fecha_de_inscripcion"].'</td>
-            </tr>
+            </tr>';
+}
+?>
+
+<?php
+$conexion->close();
+?>
+
           </tbody>
         </table>
       </div>
@@ -77,9 +88,9 @@ while ($fila=$resultado->fetch_assoc()) {
     </div>
    
   </div>
-</div>';
-}
-echo '<div class="formulario">
+</div>
+
+<div class="formulario">
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -92,36 +103,37 @@ echo '<div class="formulario">
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form>
+          <form action="conexion-inscripcion.php" method="POST">
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Ingresar ID...">
+                <input type="number" class="form-control" name= "id" id="exampleInputEmail1" placeholder="Ingresar ID...">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">ID Alumno</label>
-                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Ingresar ID Alumno...">
+                <input type="number" class="form-control" name="id_alumno" id="exampleInputPassword1" placeholder="Ingresar ID Alumno...">
               </div>
               <div class="form-group">
                 <label for="exampleInput2">ID Curso</label>
-                <input type="number" class="form-control" id="exampleInput2" placeholder="Ingresar ID Curso...">
+                <input type="number" class="form-control" name="id_curso" id="exampleInput2" placeholder="Ingresar ID Curso...">
               </div>
               <div class="form-group">
                 <label for="exampleInput3">Fecha de inscripcion</label>
-                <input type="date" class="form-control" id="exampleInput3" placeholder="Ingresar fecha de inscripcion...">
+                <input type="date" class="form-control" name="fecha_de_inscripcion" id="exampleInput3" placeholder="Ingresar fecha de inscripcion...">
               </div>
             </div>
-            <!-- /.card-body -->
+            <!-- /.card-body btn btn-primary -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Subir</button>
+            <button onClick="submit;" class="btn btn-primary">ENVIAR</button>
             </div>
           </form>
+          <div>
+            <a href="../../indez.php">VOLVER AL INICIO</a>
+</div>
         </div>
-        </div>';
+        </div>
 
-$conexion->close();
-?>
 <!-- jQuery -->
 <script src="../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -134,7 +146,7 @@ $conexion->close();
 </html>
 
 
-
+<!-- 
 
 class inscripcion{
     public $id_inscripcion;
@@ -164,3 +176,4 @@ $inscrip->nuevainscrip();
 $conexion->close();
 
 
+ -->

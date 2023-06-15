@@ -31,11 +31,10 @@ if ($conexion->connect_error) {
 }
 $sql="SELECT*FROM usuarios";
 $resultado=$conexion->query($sql);
-echo  '<h3 class="card-title">Usuarios</h3><br>';
+?>
 
-while ($fila=$resultado->fetch_assoc()) {
-  #imprimir los datos de cada fila
-  echo '<div class="row">
+
+ <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
@@ -65,23 +64,37 @@ while ($fila=$resultado->fetch_assoc()) {
             
           </thead>
           <tbody>
-            <tr>
+
+<?php
+echo  '<h3 class="card-title">Usuarios</h3><br>';
+
+while ($fila=$resultado->fetch_assoc()) {
+echo'            <tr>
               <td>'.$fila["id"].'</td>
               <td>'.$fila["n_usuario"].'</td>
               <td>'.$fila["clave"].'</td>
               <td>'.$fila["id_persona"].'</td>
               <td>'.$fila["ft_perfil"].'</td>
-            </tr>
-          </tbody>
+            </tr>';
+}
+?>
+            </tbody>
         </table>
       </div>
       
     </div>
    
   </div>
-</div>';
-}
-echo '<div class="formulario">
+</div>
+
+ 
+
+<?php
+$conexion->close();          
+?> 
+
+
+<div class="formulario">
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -93,41 +106,43 @@ echo '<div class="formulario">
             <h3 class="card-title">Nuevo usuario</h3>
           </div>
           <!-- /.card-header -->
-          <!-- form start -->
-          <form>
+          <!-- form start -->       
+          <form action="conexion-usuarios.php" method="POST">
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Ingresar ID...">
+                <input type="number" class="form-control" name="ID" id="exampleInputEmail1" placeholder="Ingresar ID...">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Nombre del usuario</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingresar Nombre del usuario...">
+                <input type="text" class="form-control" name="n_usuario" id="exampleInputPassword1" placeholder="Ingresar Nombre del usuario...">
               </div>
               <div class="form-group">
                 <label for="exampleInput">Clave</label>
-                <input type="text" class="form-control" id="exampleInput" placeholder="Ingresar Clave...">
+                <input type="text" class="form-control" name="clave" id="exampleInput" placeholder="Ingresar Clave...">
               </div>
               <div class="form-group">
                 <label for="exampleInput2">ID Persona</label>
-                <input type="number" class="form-control" id="exampleInput2" placeholder="Ingresar ID Persona...">
+                <input type="number" class="form-control" name="ID_Persona" id="exampleInput2" placeholder="Ingresar ID Persona...">
               </div>
               <div class="form-group">
                 <label for="exampleInput4">Foto de perfil</label>
-                <input type="file" class="form-control" id="exampleInput4" placeholder="Ingresar Foto de perfil...">
+                <input type="text" class="form-control" name="ft_perfil" id="exampleInput4" placeholder="Ingresar Foto de perfil...">
               </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Subir</button>
+            <button onClick="submit;" class="btn btn-primary">ENVIAR</button>
             </div>
           </form>
+          <div>
+            <a href="../../indez.php">VOLVER AL INICIO</a>
+</div>
         </div>
-        </div>';
+        </div>
 
-$conexion->close();
-?>
+
 <!-- jQuery -->
 <script src="../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

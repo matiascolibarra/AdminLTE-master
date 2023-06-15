@@ -115,9 +115,12 @@ $conexion->close();
 
             <div class="card-footer">
 
-            <button onClick="submit;">Refresh Page</button>
+            <button onClick="submit;" class="btn btn-primary">ENVIAR</button>
             </div>
           </form>
+          <div>
+            <a href="../../indez.php">VOLVER AL INICIO</a>
+</div>
         </div>
         </div>
 <!-- jQuery -->

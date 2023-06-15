@@ -31,11 +31,10 @@ if ($conexion->connect_error) {
 }
 $sql="SELECT*FROM persona";
 $resultado=$conexion->query($sql);
-echo  '<h3 class="card-title">Persona</h3><br>';
 
-while ($fila=$resultado->fetch_assoc()) {
-  #imprimir los datos de cada fila
-  echo '<div class="row">
+  ?>
+  
+  <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
@@ -66,14 +65,21 @@ while ($fila=$resultado->fetch_assoc()) {
             
           </thead>
           <tbody>
-            <tr>
+
+          <?php
+          echo  '<h3 class="card-title">Persona</h3><br>';
+
+while ($fila=$resultado->fetch_assoc()) {
+           echo ' <tr>
               <td>'.$fila["id"].'</td>
               <td>'.$fila["nombre"].'</td>
               <td>'.$fila["apellido"].'</td>
               <td>'.$fila["direccion"].'</td>
               <td>'.$fila["telefono"].'</td>
               <td>'.$fila["DNI"].'</td>
-            </tr>
+            </tr>';
+}
+            ?>
           </tbody>
         </table>
       </div>
@@ -81,9 +87,13 @@ while ($fila=$resultado->fetch_assoc()) {
     </div>
    
   </div>
-</div>';
-}
-echo '<div class="formulario">
+</div>
+
+<?php
+$conexion->close();
+?>
+
+<div class="formulario">
 <section class="content">
   <div class="container-fluid">
     <div class="row">
@@ -96,45 +106,61 @@ echo '<div class="formulario">
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form>
+          <form action="conexion-persona.php" method="POST">
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">ID</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Ingresar ID...">
+                <input type="number" class="form-control" name="id" id="exampleInputEmail1" placeholder="Ingresar ID...">
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Nombre</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ingresar Nombre...">
+                <input type="text" class="form-control" name="nombre" id="exampleInputPassword1" placeholder="Ingresar Nombre...">
               </div>
               <div class="form-group">
                 <label for="exampleInput">Apellido</label>
-                <input type="text" class="form-control" id="exampleInput" placeholder="Ingresar Apellido">
+                <input type="text" class="form-control" name="apellido" id="exampleInput" placeholder="Ingresar Apellido">
               </div>
               <div class="form-group">
                 <label for="exampleInput2">Direccion</label>
-                <input type="text" class="form-control" id="exampleInput2" placeholder="Ingresar Direccion...">
+                <input type="text" class="form-control" name="direccion" id="exampleInput2" placeholder="Ingresar Direccion...">
               </div>
               <div class="form-group">
                 <label for="exampleInput3">Telefono</label>
-                <input type="number" class="form-control" id="exampleInput3" placeholder="Ingresar Telefono...">
+                <input type="number" class="form-control" name="telefono" id="exampleInput3" placeholder="Ingresar Telefono...">
               </div>
               <div class="form-group">
                 <label for="exampleInput4">DNI</label>
-                <input type="number" class="form-control" id="exampleInput4" placeholder="Ingresar DNI...">
+                <input type="text" class="form-control" name="dni" id="exampleInput4" placeholder="Ingresar DNI...">
               </div>
+             
+              
               
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Subir</button>
+            <button onClick="submit;" class="btn btn-primary">ENVIAR</button>
             </div>
           </form>
-        </div>
-        </div>';
 
-$conexion->close();
-?>
+          <!-- <form action="conexion-persona.php" method="POST">
+            <legend>Eliminar Persona</legend>
+          <div class="form-group">
+                <label for="exampleInput4">Eliminar</label>
+                <input type="text" class="form-control" name="delete" id="exampleInput4" placeholder="Ingresar ID de la persona a eliminar...">
+                <div class="card-footer">
+            <button onClick="submit;" class="btn btn-primary">ENVIAR</button>
+                </div>
+              </div>
+</form> -->
+          <div>
+            <a href="../../indez.php">VOLVER AL INICIO</a>
+</div>
+        </div>
+        </div>
+
+
+
 <!-- jQuery -->
 <script src="../../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -145,14 +171,14 @@ $conexion->close();
 <script src="../../../dist/js/demo.js"></script>
 </body>
 </html>
-###class persona{
+<!-- class persona{
     public $id_persona;
     public $nombre;
     public $apellido;
     public $direccion;
     public $telefono;
     public $DNI;
-}
+} -->
 
 
 

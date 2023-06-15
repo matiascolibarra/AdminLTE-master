@@ -31,7 +31,6 @@ if ($conexion->connect_error) {
 }
 $sql="SELECT*FROM cursos";
 $resultado=$conexion->query($sql);
-echo  '<h3 class="card-title">Cursos</h3><br>';
 ?>
 <header class="header-2">
   <div class="row">
@@ -139,9 +138,12 @@ $conexion->close();
             <!-- /.card-body -->
 
             <div class="card-footer">
-            <button onClick="submit;">Refresh Page</button>
+            <button onClick="submit;" class="btn btn-primary">ENVIAR</button>
             </div>
           </form>
+          <div>
+            <a href="../../indez.php">VOLVER AL INICIO</a>
+</div>
         </div>
         </div>
 

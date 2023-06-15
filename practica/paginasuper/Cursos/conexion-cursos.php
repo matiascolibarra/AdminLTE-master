@@ -21,7 +21,7 @@ if ($_POST){
     $cupototal= $_POST['cupototal'];
     $imagen= $_POST['imagen'];
 }
-$sql="INSERT INTO cursos (id,nomb,duracion,id_instructor,cupototal,imagen) values ($ID,$nomb,$duracion,$id_instructor,$cupototal,$imagen)";
+$sql='INSERT INTO cursos (id,nomb,duracion,id_instructor,cupototal,imagen) values ("'.$ID.'","'.$nomb.'","'.$duracion.'","'.$id_instructor.'","'.$cupototal.'","'.$imagen.'")';
 $resultado=$conexion->query($sql);
 ?>
 <script>window.location="cursos.php";</script>

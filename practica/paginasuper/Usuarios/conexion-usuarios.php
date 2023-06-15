@@ -15,13 +15,17 @@ if ($conexion->connect_error) {
 
 if ($_POST){
     $ID = $_POST['ID'];
-    $ID_Persona= $_POST['ID_persona'];
-    $Area=$_POST['area'];
+    $N_USUARIO = $_POST['n_usuario'];
+    $CLAVE= $_POST['clave'];
+    $ID_PERSONA = $_POST['ID_Persona'];
+    $FT_PERFIL= $_POST['ft_perfil'];
+
+
 }
-$sql='INSERT INTO instructores (id,id_persona,Area) values ("'.$ID.'","'.$ID_Persona.'","'.$Area.'")';
+$sql='INSERT INTO usuarios (id,n_usuario,clave,id_persona,ft_perfil) values ("'.$ID.'","'.$N_USUARIO.'","'.$CLAVE.'","'.$ID_PERSONA.'","'.$FT_PERFIL.'")';
 $resultado=$conexion->query($sql);
 ?>
-<script>window.location="instructores.php";</script>
+<script>window.location="usuarios.php";</script>
 <?php
 
 $conexion->close();
