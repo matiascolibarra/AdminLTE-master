@@ -21,3 +21,14 @@
 .card-title-1{
     font-size: 50px;
 }
+
+.flex-new{
+    display:flex;
+    width: 20vw;
+    height: 10vh;
+    border: 2px red solid;
+    font-size: 50px;
+}
+.p-contador{
+    font-size: 50px;
+}

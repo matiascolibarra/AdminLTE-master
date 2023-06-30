@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Simple Tables</title>
+  <title>Tablas de Usuarios</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,20 +15,9 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <?php
-#datos de conexion
-$host="localhost";
-$user= "root";
-$contra="";
-$nombre= "centro3";
-
-#conexion
-$conexion = new mysqli($host,$user,$contra,$nombre);
+include "../clases/conexiondb.php";
 
 
-#comprobar si se produce un error
-if ($conexion->connect_error) {
-    die ("Error al conectar a la base de datos");
-}
 $sql="SELECT*FROM usuarios";
 $resultado=$conexion->query($sql);
 ?>
@@ -90,7 +79,7 @@ echo'            <tr>
  
 
 <?php
-$conexion->close();          
+require("../clases/close.php");      
 ?> 
 
 

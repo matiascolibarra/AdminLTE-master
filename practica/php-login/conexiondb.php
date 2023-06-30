@@ -2,7 +2,7 @@
 $host="localhost";
 $user= "root";
 $contra="";
-$nombre= "centro3";
+$nombre= "login";
 
 #conexion
 $conexion = new mysqli($host,$user,$contra,$nombre);
@@ -13,19 +13,18 @@ if ($conexion->connect_error) {
     die ("Error al conectar a la base de datos");
 }
 
+session_start();
+
 if ($_POST){
-    $ID = $_POST['ID'];
-    $ID_PERSONA = $_POST['ID_Persona'];
+    $USUARIO = $_POST['usuario'];
+    $CONTRASENA= $_POST['password'];
 }
-$sql="INSERT INTO alumno (id,id_persona) values ($ID,$ID_PERSONA)";
+
+$sql='SELECT * FROM usuario';
 $resultado=$conexion->query($sql);
 ?>
-<script>window.location="alumno.php";</script>
+<script>window.location="login.php";</script>
 <?php
-
 $conexion->close();
 
 ?>
-
-
-

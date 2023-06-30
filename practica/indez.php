@@ -13,12 +13,13 @@
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
-<?php
- echo  '<div class="row">
+
+
+<div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Base De Datos</h3>
+                <h3 class="card-title">Baseeeee De Datos</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -94,9 +95,9 @@
             </div>
            
           </div>
-        </div>';
+        </div>
      
-?>
+
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Simple Tables</title>
+  <title>Tabla de Alumnos</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -50,7 +50,7 @@ $resultado=$conexion->query($sql);
         </div>
       </div>
       <div class="card-body table-responsive p-0">
-        <table class="table table-hover text-nowrap">
+        <table class="table table-hover text-nowrap" id="alumno">
           <thead>
             <tr>
               <th>ID</th>
@@ -97,6 +97,7 @@ $conexion->close();
           <div class="card-header">
             <h3 class="card-title">Nuevo alumno</h3>
           </div>
+          
           <!-- /.card-header -->
           <!-- form start -->
           <form action="conexion-alumno.php" method="POST">
@@ -110,6 +111,7 @@ $conexion->close();
                 <label for="exampleInputPassword1">ID Persona</label>
                 <input type="number" class="form-control" name="ID_Persona" id="exampleInputPassword1" placeholder="Ingresar ID Persona...">
               </div>
+              
             </div>
             <!-- /.card-body -->
 
@@ -123,6 +125,23 @@ $conexion->close();
 </div>
         </div>
         </div>
+
+
+        <p class="form-control" name="contador" id="resultado"></p>
+
+
+      
+
+<!-- Contador de ID -->
+<!-- <script>
+  let tablaAlumno = document.getElementById('alumnos');
+  let filas = tablaAlumno.getElementsByTagName('tbody')[0];
+  console.log(filas);
+
+  document.getElementById('resultado').innerText = filas.children.length;
+
+</script>     -->    
+
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
